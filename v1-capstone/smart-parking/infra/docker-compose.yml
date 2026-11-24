@@ -1,0 +1,64 @@
+version: "3.9"
+
+# 포트 공개 범위
+#   127.0.0.1:...  → 이 PC에서만 접속 가능 (DB, 관리 화면)
+#   그 외          → 같은 네트워크의 다른 기기에서 접속 가능
+#                    5672  RabbitMQ  : 별도 카메라 장치(Jetson)가 이벤트를 보낼 때 필요
+#                    8554  RTSP      : 카메라 장치가 영상을 보낼 때 필요
+#                    8889  HLS       : iPad 등에서 CCTV(HLS) 화면을 볼 때 필요
+# 비밀번호는 infra/.env 로 바꿀 수 있다 (.env.example 참고). 공용 네트워크에서는 꼭 바꿀 것.
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: smartparking-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-rootpass}
+      MYSQL_DATABASE: smartparking
+      MYSQL_USER: ${DB_USER:-app}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-apppass}
+      TZ: Asia/Seoul
+    ports:
+      - "127.0.0.1:3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    command:
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: smartparking-rabbitmq
+    restart: always
+    ports:
+      - "5672:5672"                 # AMQP (카메라 장치 → 서버)
+      - "127.0.0.1:15672:15672"     # 관리 화면은 이 PC에서만
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBIT_USER:-app}
+      RABBITMQ_DEFAULT_PASS: ${RABBIT_PASSWORD:-apppass}
+
+  adminer:
+    image: adminer:latest
+    container_name: smartparking-adminer
+    restart: always
+    ports:
+      - "127.0.0.1:8080:8080"       # DB 관리 화면은 이 PC에서만
+    depends_on:
+      - mysql
+
+  mediamtx:
+    image: bluenviron/mediamtx:latest
+    container_name: smartparking-mediamtx
+    restart: always
+    ports:
+      - "8554:8554"                 # RTSP (카메라 장치 → 서버)
+      - "127.0.0.1:8888:8888"       # MediaMTX 제어 API는 이 PC에서만
+      - "8889:8889"                 # HLS (브라우저 재생)
+    volumes:
+      - ./mediamtx.yml:/mediamtx.yml
+    extra_hosts:
+      - "host.docker.internal:host-gateway"  # 컨테이너 → 호스트 접근
+
+volumes:
+  mysql_data:

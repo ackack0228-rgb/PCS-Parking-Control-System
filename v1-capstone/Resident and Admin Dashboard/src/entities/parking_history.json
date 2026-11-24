@@ -1,0 +1,67 @@
+{
+  "name": "parking_history",
+  "type": "object",
+  "required": [
+    "history_id",
+    "user_id",
+    "vehicle_id",
+    "spot_id",
+    "entry_time",
+    "exit_time",
+    "duration",
+    "ai_log_id",
+    "creator",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "history_id": {
+      "bsonType": "string",
+      "description": "기록 ID"
+    },
+    "user_id": {
+      "bsonType": "string",
+      "description": "사용자 ID"
+    },
+    "vehicle_id": {
+      "bsonType": "string",
+      "description": "차량 ID"
+    },
+    "spot_id": {
+      "bsonType": "string",
+      "description": "구역 ID"
+    },
+    "entry_time": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "입차 시각"
+    },
+    "exit_time": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "출차 시각"
+    },
+    "duration": {
+      "bsonType": "int",
+      "description": "주차 시간(분)"
+    },
+    "ai_log_id": {
+      "bsonType": "string",
+      "description": "AI 로그 ID"
+    },
+    "creator": {
+      "bsonType": "string",
+      "description": "생성자"
+    },
+    "createdAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "생성일시"
+    },
+    "updatedAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "수정일시"
+    }
+  }
+}

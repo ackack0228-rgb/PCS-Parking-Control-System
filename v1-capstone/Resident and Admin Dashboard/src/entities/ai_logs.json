@@ -1,0 +1,70 @@
+{
+  "name": "ai_logs",
+  "type": "object",
+  "required": [
+    "ai_log_id",
+    "camera_id",
+    "model_version",
+    "inference_time",
+    "detected_car",
+    "confidence",
+    "result",
+    "processing_time_ms",
+    "creator",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "ai_log_id": {
+      "bsonType": "string",
+      "description": "로그 ID"
+    },
+    "camera_id": {
+      "bsonType": "string",
+      "description": "카메라 ID"
+    },
+    "model_version": {
+      "bsonType": "string",
+      "description": "모델 버전"
+    },
+    "inference_time": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "분석 시각"
+    },
+    "detected_car": {
+      "bsonType": "string",
+      "description": "인식된 차량 번호"
+    },
+    "confidence": {
+      "bsonType": "number",
+      "description": "인식 정확도(%)"
+    },
+    "result": {
+      "bsonType": "string",
+      "enum": [
+        "normal",
+        "violation"
+      ],
+      "description": "분석 결과"
+    },
+    "processing_time_ms": {
+      "bsonType": "int",
+      "description": "처리시간(ms)"
+    },
+    "creator": {
+      "bsonType": "string",
+      "description": "생성자"
+    },
+    "createdAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "생성일시"
+    },
+    "updatedAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "수정일시"
+    }
+  }
+}

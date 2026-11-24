@@ -1,0 +1,69 @@
+{
+  "name": "inquiry_info",
+  "type": "object",
+  "required": [
+    "inquiry_id",
+    "user_id",
+    "title",
+    "content",
+    "file_path",
+    "category",
+    "status",
+    "creator",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "inquiry_id": {
+      "bsonType": "string",
+      "description": "문의 ID"
+    },
+    "user_id": {
+      "bsonType": "string",
+      "description": "작성자 ID"
+    },
+    "title": {
+      "bsonType": "string",
+      "description": "문의 제목"
+    },
+    "content": {
+      "bsonType": "string",
+      "description": "상세 문의 내용"
+    },
+    "file_path": {
+      "bsonType": "string",
+      "description": "첨부파일 경로"
+    },
+    "category": {
+      "bsonType": "string",
+      "enum": [
+        "report",
+        "suggestion",
+        "other"
+      ],
+      "description": "문의 유형"
+    },
+    "status": {
+      "bsonType": "string",
+      "enum": [
+        "pending",
+        "answered"
+      ],
+      "description": "처리 상태"
+    },
+    "creator": {
+      "bsonType": "string",
+      "description": "생성자"
+    },
+    "createdAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "생성일시"
+    },
+    "updatedAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "수정일시"
+    }
+  }
+}

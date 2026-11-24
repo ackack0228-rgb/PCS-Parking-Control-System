@@ -1,0 +1,61 @@
+{
+  "name": "parking_spot_status",
+  "type": "object",
+  "required": [
+    "spot_id",
+    "section",
+    "position",
+    "is_occupied",
+    "last_detected_car",
+    "last_updated",
+    "sensor_data",
+    "creator",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "spot_id": {
+      "bsonType": "string",
+      "description": "구역 ID"
+    },
+    "section": {
+      "bsonType": "string",
+      "description": "구역명"
+    },
+    "position": {
+      "bsonType": "int",
+      "description": "위치 번호"
+    },
+    "is_occupied": {
+      "bsonType": "bool",
+      "description": "점유 여부"
+    },
+    "last_detected_car": {
+      "bsonType": "string",
+      "description": "최근 인식된 차량 번호"
+    },
+    "last_updated": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "상태 갱신 시각"
+    },
+    "sensor_data": {
+      "bsonType": "object",
+      "description": "센서 데이터 JSON"
+    },
+    "creator": {
+      "bsonType": "string",
+      "description": "생성자"
+    },
+    "createdAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "생성일시"
+    },
+    "updatedAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "수정일시"
+    }
+  }
+}

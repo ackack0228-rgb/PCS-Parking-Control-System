@@ -1,0 +1,51 @@
+{
+  "name": "camera_info",
+  "type": "object",
+  "required": [
+    "camera_id",
+    "location",
+    "ip_address",
+    "model_name",
+    "installed_at",
+    "creator",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "camera_id": {
+      "bsonType": "string",
+      "description": "카메라 ID"
+    },
+    "location": {
+      "bsonType": "string",
+      "description": "설치 위치"
+    },
+    "ip_address": {
+      "bsonType": "string",
+      "description": "IP 주소"
+    },
+    "model_name": {
+      "bsonType": "string",
+      "description": "모델명"
+    },
+    "installed_at": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "설치일"
+    },
+    "creator": {
+      "bsonType": "string",
+      "description": "생성자"
+    },
+    "createdAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "생성일시"
+    },
+    "updatedAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "수정일시"
+    }
+  }
+}

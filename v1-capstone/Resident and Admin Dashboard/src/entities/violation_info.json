@@ -1,0 +1,61 @@
+{
+  "name": "violation_info",
+  "type": "object",
+  "required": [
+    "violation_id",
+    "spot_id",
+    "ai_log_id",
+    "car_number",
+    "detected_time",
+    "rule_violated",
+    "confirmed",
+    "creator",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "violation_id": {
+      "bsonType": "string",
+      "description": "위반 ID"
+    },
+    "spot_id": {
+      "bsonType": "string",
+      "description": "위치 ID"
+    },
+    "ai_log_id": {
+      "bsonType": "string",
+      "description": "로그 ID"
+    },
+    "car_number": {
+      "bsonType": "string",
+      "description": "차량 번호"
+    },
+    "detected_time": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "탐지 시각"
+    },
+    "rule_violated": {
+      "bsonType": "string",
+      "description": "위반 규칙"
+    },
+    "confirmed": {
+      "bsonType": "bool",
+      "description": "검증 여부"
+    },
+    "creator": {
+      "bsonType": "string",
+      "description": "생성자"
+    },
+    "createdAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "생성일시"
+    },
+    "updatedAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "수정일시"
+    }
+  }
+}

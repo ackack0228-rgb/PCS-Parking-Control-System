@@ -1,0 +1,56 @@
+{
+  "name": "camera_status_history",
+  "type": "object",
+  "required": [
+    "status_id",
+    "camera_id",
+    "status",
+    "checked_at",
+    "notes",
+    "creator",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "status_id": {
+      "bsonType": "string",
+      "description": "이력 ID"
+    },
+    "camera_id": {
+      "bsonType": "string",
+      "description": "카메라 ID"
+    },
+    "status": {
+      "bsonType": "string",
+      "enum": [
+        "normal",
+        "error",
+        "maintenance"
+      ],
+      "description": "상태"
+    },
+    "checked_at": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "점검 시각"
+    },
+    "notes": {
+      "bsonType": "string",
+      "description": "점검 내용"
+    },
+    "creator": {
+      "bsonType": "string",
+      "description": "생성자"
+    },
+    "createdAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "생성일시"
+    },
+    "updatedAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "수정일시"
+    }
+  }
+}

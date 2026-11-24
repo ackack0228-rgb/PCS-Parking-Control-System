@@ -1,0 +1,133 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Docker Compose 시작",
+      "type": "shell",
+      "command": "docker-compose up -d",
+      "options": {
+        "cwd": "${workspaceFolder}\\..\\smart-parking\\infra"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "label": "Docker"
+      }
+    },
+    {
+      "label": "Docker Compose: 서비스 중지",
+      "type": "shell",
+      "command": "docker-compose down",
+      "options": {
+        "cwd": "${workspaceFolder}\\..\\smart-parking\\infra"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Docker Compose: 로그 확인",
+      "type": "shell",
+      "command": "docker-compose logs -f",
+      "options": {
+        "cwd": "${workspaceFolder}\\..\\smart-parking\\infra"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "MediaMTX: 스트림 상태 확인",
+      "type": "shell",
+      "command": "curl http://localhost:8888/v3/paths/list",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "pnpm build (배포용)",
+      "type": "shell",
+      "command": "pnpm build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "프론트엔드 dev server",
+      "type": "shell",
+      "command": "pnpm dev --host --open",
+      "problemMatcher": [],
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "label": "Frontend"
+      }
+    },
+    {
+      "label": "백엔드 서버",
+      "type": "shell",
+      "command": "Write-Host 'MySQL 준비 대기 중 (15초)...'; Start-Sleep -Seconds 15; node index.js",
+      "options": {
+        "cwd": "${workspaceFolder}\\..\\smart-parking\\backend"
+      },
+      "problemMatcher": [],
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "label": "Backend"
+      }
+    },
+    {
+      "label": "RabbitMQ Consumer",
+      "type": "shell",
+      "command": "Write-Host 'MySQL 준비 대기 중 (17초)...'; Start-Sleep -Seconds 17; node consumer.js",
+      "options": {
+        "cwd": "${workspaceFolder}\\..\\smart-parking\\backend"
+      },
+      "problemMatcher": [],
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "label": "Consumer"
+      }
+    },
+    {
+      "label": "AI 카메라 서비스",
+      "type": "shell",
+      "command": "Start-Process cmd.exe -ArgumentList @('/k', 'title AI Camera && set PYTHONIOENCODING=utf-8 && cd /d \"${workspaceFolder}\\..\\smart-parking\\ai\" && taskkill /F /IM python.exe /T 2>nul & timeout /t 3 /nobreak & venv\\Scripts\\python.exe main.py')",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "silent",
+        "panel": "dedicated",
+        "label": "AI Camera"
+      }
+    },
+    {
+      "label": "dev server 자동 시작",
+      "dependsOn": [
+        "Docker Compose 시작",
+        "백엔드 서버",
+        "RabbitMQ Consumer",
+        "AI 카메라 서비스",
+        "프론트엔드 dev server"
+      ],
+      "dependsOrder": "parallel",
+      "problemMatcher": [],
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    }
+  ]
+}

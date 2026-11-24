@@ -1,0 +1,61 @@
+{
+  "name": "user_vehicle",
+  "type": "object",
+  "required": [
+    "vehicle_id",
+    "user_id",
+    "car_number",
+    "car_model",
+    "car_type",
+    "registered_at",
+    "verified",
+    "creator",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "vehicle_id": {
+      "bsonType": "string",
+      "description": "차량 ID"
+    },
+    "user_id": {
+      "bsonType": "string",
+      "description": "소유자 ID"
+    },
+    "car_number": {
+      "bsonType": "string",
+      "description": "차량 번호"
+    },
+    "car_model": {
+      "bsonType": "string",
+      "description": "차량 모델명"
+    },
+    "car_type": {
+      "bsonType": "string",
+      "description": "차량 종류 (예: 승용, SUV)"
+    },
+    "registered_at": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "등록일"
+    },
+    "verified": {
+      "bsonType": "bool",
+      "description": "소유권 검증 여부"
+    },
+    "creator": {
+      "bsonType": "string",
+      "description": "생성자"
+    },
+    "createdAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "생성일시"
+    },
+    "updatedAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "수정일시"
+    }
+  }
+}

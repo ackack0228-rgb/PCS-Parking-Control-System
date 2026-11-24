@@ -1,0 +1,56 @@
+{
+  "name": "violation_action",
+  "type": "object",
+  "required": [
+    "action_id",
+    "violation_id",
+    "action_type",
+    "action_time",
+    "result",
+    "creator",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "action_id": {
+      "bsonType": "string",
+      "description": "조치 ID"
+    },
+    "violation_id": {
+      "bsonType": "string",
+      "description": "위반 ID"
+    },
+    "action_type": {
+      "bsonType": "string",
+      "enum": [
+        "sms",
+        "towing",
+        "warning"
+      ],
+      "description": "조치 유형"
+    },
+    "action_time": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "조치 시각"
+    },
+    "result": {
+      "bsonType": "string",
+      "description": "조치 결과 내용"
+    },
+    "creator": {
+      "bsonType": "string",
+      "description": "생성자"
+    },
+    "createdAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "생성일시"
+    },
+    "updatedAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "수정일시"
+    }
+  }
+}

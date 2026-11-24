@@ -1,0 +1,70 @@
+{
+  "name": "users",
+  "type": "object",
+  "required": [
+    "user_id",
+    "username",
+    "password",
+    "name",
+    "phone",
+    "email",
+    "role",
+    "notification_pref",
+    "creator",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "user_id": {
+      "bsonType": "string",
+      "description": "사용자 고유번호"
+    },
+    "username": {
+      "bsonType": "string",
+      "description": "로그인 아이디"
+    },
+    "password": {
+      "bsonType": "string",
+      "description": "암호화된 비밀번호"
+    },
+    "name": {
+      "bsonType": "string",
+      "description": "사용자 이름"
+    },
+    "phone": {
+      "bsonType": "string",
+      "description": "연락처"
+    },
+    "email": {
+      "bsonType": "string",
+      "description": "이메일 주소"
+    },
+    "role": {
+      "bsonType": "string",
+      "enum": [
+        "resident",
+        "admin",
+        "visitor"
+      ],
+      "description": "계정 유형"
+    },
+    "notification_pref": {
+      "bsonType": "object",
+      "description": "알림 설정 JSON"
+    },
+    "creator": {
+      "bsonType": "string",
+      "description": "생성자"
+    },
+    "createdAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "생성일시"
+    },
+    "updatedAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "수정일시"
+    }
+  }
+}

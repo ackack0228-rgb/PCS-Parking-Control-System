@@ -1,0 +1,7 @@
+# 각 폴더(Resident and Admin Dashboard, smart-parking)에 자체 .gitignore가 있다. 여기는 공통 안전장치.
+.env
+node_modules/
+venv/
+__pycache__/
+*.pt
+CLAUDE.md

@@ -1,0 +1,61 @@
+{
+  "name": "notification_info",
+  "type": "object",
+  "required": [
+    "notification_id",
+    "user_id",
+    "type",
+    "message",
+    "sent_time",
+    "template_id",
+    "creator",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "notification_id": {
+      "bsonType": "string",
+      "description": "알림 ID"
+    },
+    "user_id": {
+      "bsonType": "string",
+      "description": "사용자 ID"
+    },
+    "type": {
+      "bsonType": "string",
+      "enum": [
+        "sms",
+        "push",
+        "email"
+      ],
+      "description": "알림 방식"
+    },
+    "message": {
+      "bsonType": "string",
+      "description": "전송된 메시지 내용"
+    },
+    "sent_time": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "전송 시각"
+    },
+    "template_id": {
+      "bsonType": "string",
+      "description": "템플릿 ID"
+    },
+    "creator": {
+      "bsonType": "string",
+      "description": "생성자"
+    },
+    "createdAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "생성일시"
+    },
+    "updatedAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "수정일시"
+    }
+  }
+}

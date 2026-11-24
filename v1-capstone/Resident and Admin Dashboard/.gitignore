@@ -1,0 +1,24 @@
+# 의존성 / 빌드 결과물
+node_modules/
+dist/
+
+# 환경 변수 (예시 파일만 올림)
+.env
+.env.*
+!.env.example
+
+# AI 모델 가중치 (22MB)
+*.pt
+
+# 개인 작업 문서 (작품요약서만 공개)
+CLAUDE.md
+.superpowers/
+docs/*
+!docs/작품요약서.md
+!docs/작품요약서.pdf
+
+# 기타
+*.log
+.DS_Store
+Thumbs.db
+__pycache__/

@@ -1,0 +1,27 @@
+# 의존성
+node_modules/
+venv/
+__pycache__/
+*.pyc
+
+# 빌드 결과물
+dist/
+dist-ssr/
+
+# 환경 변수 (API 키 포함 — 예시 파일만 올림)
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# AI 모델 가중치 / 디버그 이미지
+*.pt
+debug_frame.jpg
+
+# 개인 작업 문서
+CLAUDE.md
+
+# 기타
+*.log
+.DS_Store
+Thumbs.db

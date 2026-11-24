@@ -1,0 +1,11 @@
+# 라즈베리파이용 패키지
+# pip install -r requirements_pi.txt
+
+flask>=3.0.0
+opencv-python-headless>=4.9.0
+ultralytics>=8.0.0
+pika>=1.3.0
+python-dotenv>=1.0.0
+
+# ONNX 추론 가속 (Pi에서 YOLOv8 속도 향상)
+onnxruntime>=1.17.0
