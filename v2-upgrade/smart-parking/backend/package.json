@@ -1,0 +1,30 @@
+{
+  "name": "pcs-backend",
+  "version": "1.0.0",
+  "description": "PCS 스마트 주차 관리 시스템 백엔드 API + RabbitMQ consumer",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "consumer": "node consumer.js",
+    "dev": "nodemon index.js",
+    "test:event": "node producer.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@lumi.new/sdk": "^0.4.3",
+    "amqplib": "^0.10.9",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^4.22.1",
+    "mysql2": "^3.16.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  },
+  "overrides": {
+    "qs": "^6.17.1"
+  }
+}

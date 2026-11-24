@@ -1,0 +1,73 @@
+{
+  "name": "visitor",
+  "type": "object",
+  "required": [
+    "visitor_id",
+    "user_id",
+    "visitor_name",
+    "car_number",
+    "visit_date",
+    "visit_time",
+    "approval_status",
+    "expiration_time",
+    "creator",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "visitor_id": {
+      "bsonType": "string",
+      "description": "방문자 ID"
+    },
+    "user_id": {
+      "bsonType": "string",
+      "description": "초대자 ID"
+    },
+    "visitor_name": {
+      "bsonType": "string",
+      "description": "방문자 이름"
+    },
+    "car_number": {
+      "bsonType": "string",
+      "description": "방문 차량 번호"
+    },
+    "visit_date": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "방문 예정일"
+    },
+    "visit_time": {
+      "bsonType": "string",
+      "description": "방문 시간"
+    },
+    "approval_status": {
+      "bsonType": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected",
+        "expired"
+      ],
+      "description": "승인 상태"
+    },
+    "expiration_time": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "만료 시각"
+    },
+    "creator": {
+      "bsonType": "string",
+      "description": "생성자"
+    },
+    "createdAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "생성일시"
+    },
+    "updatedAt": {
+      "bsonType": "string",
+      "title": "datetime",
+      "description": "수정일시"
+    }
+  }
+}

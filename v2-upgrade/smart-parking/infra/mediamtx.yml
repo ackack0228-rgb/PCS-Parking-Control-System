@@ -1,0 +1,23 @@
+# MediaMTX 설정
+# - 카메라 장치가 RTSP 스트림을 push 하면 HLS로 변환해 브라우저에 제공한다.
+# - 경로 이름 = 카메라 코드 (예: rtsp://{서버IP}:8554/CAM-A-G-01)
+# - AI 서비스는 MediaMTX와 별개로 `python main.py`로 실행한다.
+
+logLevel: info
+
+# API (MediaMTX 제어용)
+api: yes
+apiAddress: :8888
+
+# RTSP 수신 (카메라 장치 → MediaMTX)
+rtsp: yes
+rtspAddress: :8554
+
+# HLS 스트리밍 (MediaMTX → 브라우저)
+hls: yes
+hlsAddress: :8889
+hlsAlwaysRemux: yes
+hlsSegmentCount: 3
+hlsSegmentDuration: 1s
+
+webrtc: no

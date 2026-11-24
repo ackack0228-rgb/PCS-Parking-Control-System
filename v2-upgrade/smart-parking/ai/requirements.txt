@@ -1,0 +1,7 @@
+# AI 카메라 서비스 (PC / 노트북)
+# pip install -r requirements.txt
+#
+# opencv-python: GUI 포함 버전 (calibrate_zones.py의 화면 표시에 필요)
+opencv-python>=4.9.0
+pika>=1.3.0
+python-dotenv>=1.0.0

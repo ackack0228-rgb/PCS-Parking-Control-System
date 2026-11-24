@@ -1,0 +1,4 @@
+# (선택) YOLO 확장 모듈용 — detection/detector.py, detection/export_onnx.py
+# 현재 main.py 실행 경로에서는 필요 없다. PyTorch가 함께 설치되어 용량이 크다(수 GB).
+# pip install -r requirements-yolo.txt
+ultralytics>=8.0.0
